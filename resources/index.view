@@ -1,39 +1,37 @@
 <svg>
 
-  <section id="coreSection" x="1%" y="1%" width="98%" height="98%">
+    <section id="coreSection" x="1%" y="1%" width="96%" height="96%">
 
-    <arc id="hourArc" x="0" y="0" width="100%" height="100%"/>
-    <circle id="hourCircle" />
+        <arc id="hrArc" x="0" y="0" width="100%" height="100%" />
+        <circle id="hrCircle"/>
+        <image id="hrImage" href="images/heart.png"/>
 
-    <arc id="minArc" x="5%" y="5%" width="90%" height="90%"/>
-    <circle id="minCircle" />
-
-    <arc id="dateArc" x="10%" y="10%" width="80%" height="80%"/>
-    <circle id="dateCircle" />
-
-    <arc id="stepsArc" x="15%" y="15%" width="70%" height="70%"/>
-    <circle id="stepsCircle" />
-
-    <arc id="distArc" x="20%" y="20%" width="60%" height="60%"/>
-    <circle id="distCircle" />
-
-    <arc id="azmArc" x="25%" y="25%" width="50%" height="50%"/>
-    <circle id="azmCircle" />
-
-    <arc id="calArc" x="30%" y="30%" width="40%" height="40%"/>
-    <circle id="calCircle" />
-
-    <arc id="floorsArc" x="35%" y="35%" width="30%" height="30%"/>
-    <circle id="floorsCircle" />
-
-    <arc id="hrArc" x="40%" y="40%" width="20%" height="20%"/>
-    <circle id="hrCircle" />
-
-    <arc id="battArc" x="45%-1" y="45%" width="10%" height="10%"/>
-    <circle id="battCircle" />
-
-  </section>
+        <arc id="stepsArc" x="5%" y="5%" width="90%" height="90%" />
+        <circle id="stepsCircle"/>
+        <image id="stepsImage" href="images/steps.png"/>
 
 
+        <arc id="distArc"x="10%" y="10%" width="80%" height="80%" />
+        <circle id="distCircle"/>
+        <image id="distImage" href="images/distance.png"/>
+
+        <arc id="azmArc" x="15%" y="15%" width="70%" height="70%" />
+        <circle id="azmCircle"/>
+        <image id="azmImage" href="images/azm.png"/>
+
+        <arc id="calArc" x="20%" y="20%" width="60%" height="60%" />
+        <circle id="calCircle"/>
+        <image id="calImage" href="images/calories.png"/>
+
+        <arc id="floorsArc" x="25%" y="25%" width="50%" height="50%"/>
+        <circle id="floorsCircle"/>
+        <image id="floorsImage" href="images/floors.png"/>
+
+    </section>
+
+    <section class="datetime">
+        <text id="dateElem" class="displayText"/>
+        <text id="timeElem" class="displayText"/>
+    </section>
 
 </svg>

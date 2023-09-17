@@ -1,135 +1,132 @@
 /*noinspection ALL*/
-.defaultText {
-  font-size: 32;
-  font-family: System-Regular;
-  font-weight: regular;
-  text-length: 32;
-}
-
-#background {
-  width: 100%;
-  height: 100%;
-  fill: white;
-}
-
-/*noinspection ALL*/
 arc{
-  arc-width:"5";
+  arc-width:"6";
   sweep-angle:"360";
 }
 
 /*noinspection ALL*/
 circle{
-  r:8;
-}
-
-/*noinspection ALL*/
-#hourArc {
-  fill: cornflowerblue;
-}
-
-/*noinspection ALL*/
-#hourCircle {
-  fill: cornflowerblue;
-}
-
-/*noinspection ALL*/
-#minArc {
-  fill: crimson;
-  start-angle:"0";
-}
-
-/*noinspection ALL*/
-#minCircle {
-  fill: crimson;
-}
-
-/*noinspection ALL*/
-#dateArc {
-  fill: floralwhite;
-  start-angle:"0";
-}
-
-/*noinspection ALL*/
-#dateCircle {
-  fill: floralwhite;
+  r:10;
 }
 
 /*noinspection ALL*/
 #stepsArc {
   fill: deepskyblue;
-  start-angle:"0";
 }
 
 /*noinspection ALL*/
-#stepsCircle {
-  fill: deepskyblue;
+#stepsImage {
+  width: 12;
+  height: 14;
 }
 
 /*noinspection ALL*/
 #distArc {
   fill: orange;
-  start-angle:"0";
 }
 
 /*noinspection ALL*/
-#distCircle {
-  fill: orange;
+#distImage {
+  width: 12;
+  height: 14;
 }
 
 /*noinspection ALL*/
 #azmArc {
   fill: gold;
-  start-angle:"0";
 }
 
 /*noinspection ALL*/
-#azmCircle {
-  fill: gold;
+#azmImage {
+  width: 13;
+  height: 13;
 }
 
 /*noinspection ALL*/
 #calArc {
   fill: limegreen;
-  start-angle: "0";
 }
 
 /*noinspection ALL*/
-#calCircle {
-  fill: limegreen;
+#calImage {
+  width: 12;
+  height: 14;
 }
 
 
 /*noinspection ALL*/
 #floorsArc {
   fill: magenta;
-  start-angle:"0";
 }
 
 /*noinspection ALL*/
-#floorsCircle {
-  fill: magenta;
+#floorsImage {
+  width: 13;
+  height: 13;
 }
 
 
 /*noinspection ALL*/
 #hrArc {
   fill: red;
-  start-angle:"0";
 }
 
 /*noinspection ALL*/
-#hrCircle {
-  fill: red;
+#hrImage {
+  width: 13;
+  height: 13;
 }
 
 /*noinspection ALL*/
 #battArc {
   fill: lightgreen;
-  start-angle:"0";
 }
 
 /*noinspection ALL*/
 #battCircle {
   fill: lightgreen;
+}
+
+/*noinspection ALL*/
+#heartCircle {
+  cx: 20%+7;
+  cy: 20%+7;
+  fill: purple;
+}
+
+/*noinspection ALL*/
+#heartImage {
+  x: 20%;
+  y: 20%;
+  width: 13;
+  height: 13;
+}
+
+/*noinspection ALL*/
+.datetime{
+  x: 49%-1;
+  y: 50%+2;
+}
+
+/*noinspection ALL*/
+#timeElem {
+  font-size: 52;
+  text-anchor: middle;
+  x: 0%;
+  y: 0%;
+}
+
+/*noinspection ALL*/
+#dateElem {
+  font-size: 18;
+  text-anchor: middle;
+  x: 0%+1;
+  y: 6%;
+}
+
+/*noinspection ALL*/
+.displayText {
+  font-family: System-Bold;
+  text-length: 32;
+  fill: white;
 }

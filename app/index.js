@@ -3,33 +3,17 @@ import * as clock from "./simple/clock";
 import * as activity from "./simple/activity";
 import * as hrm from "./simple/hrm";
 
+
+
 /**
  * Datetime code
  */
-const hourArc = document.getElementById("hourArc");
-const hourCircle = document.getElementById("hourCircle");
-
-const minArc = document.getElementById("minArc");
-const minCircle = document.getElementById("minCircle");
-
-const dateArc = document.getElementById("dateArc");
-const dateCircle = document.getElementById("dateCircle");
-
-const battArc = document.getElementById("battArc");
-const battCircle = document.getElementById("battCircle");
+const timeElem = document.getElementById("timeElem");
+const dateElem = document.getElementById("dateElem");
 
 function clockCallback(data) {
-    hourArc.sweepAngle = (data.hours / 24) * 360;
-    calculateArcEndPoint(hourArc, hourCircle);
-
-    minArc.sweepAngle = (data.mins / 60) * 360;
-    calculateArcEndPoint(minArc, minCircle);
-
-    dateArc.sweepAngle = (data.daysPassed / 365) * 360;
-    calculateArcEndPoint(dateArc, dateCircle);
-
-    battArc.sweepAngle = (data.power.battery / 100) * 360;
-    calculateArcEndPoint(battArc, battCircle);
+    timeElem.text = data.time;
+    dateElem.text = data.date;
 }
 
 clock.initialize("minutes", "shortDate", clockCallback);
@@ -51,29 +35,25 @@ const azmCircle = document.getElementById("azmCircle");
 const calCircle = document.getElementById("calCircle");
 const floorsCircle = document.getElementById("floorsCircle");
 
+const distImage = document.getElementById("distImage");
+const stepsImage = document.getElementById("stepsImage");
+const azmImage = document.getElementById("azmImage");
+const calImage = document.getElementById("calImage");
+const floorsImage = document.getElementById("floorsImage");
+
+
 function activityCallback(data) {
-
-    /*
-    dateArc.sweepAngle = (Number(data.secs) / 60 * 360)
-
-    stepsArc.sweepAngle = (6000 / data.steps.goal) * 360;
-    distanceArc.sweepAngle = (5.4 / (data.distance.goal / 1000)) * 360;
-    AZMArc.sweepAngle = (5 / data.activeMinutes.goal) * 360;
-    caloriesArc.sweepAngle = (800 / 2000) * 360;
-    floorsArc.sweepAngle = (3 / data.elevationGain.goal) * 360;
-
-     */
     stepsArc.sweepAngle = (data.steps.raw / data.steps.goal) * 360;
     distanceArc.sweepAngle = (data.distance.raw / (data.distance.goal / 1000)) * 360;
     AZMArc.sweepAngle = (data.activeMinutes.raw / data.activeMinutes.goal) * 360;
     caloriesArc.sweepAngle = (data.calories.raw / data.calories.goal) * 360;
     floorsArc.sweepAngle = (data.elevationGain.raw / data.elevationGain.goal) * 360;
 
-    calculateArcEndPoint(stepsArc, stepsCircle);
-    calculateArcEndPoint(distanceArc, distCircle);
-    calculateArcEndPoint(AZMArc, azmCircle);
-    calculateArcEndPoint(caloriesArc, calCircle);
-    calculateArcEndPoint(floorsArc, floorsCircle);
+    calculateArcEndPoint(stepsArc, stepsCircle, stepsImage);
+    calculateArcEndPoint(distanceArc, distCircle, distImage);
+    calculateArcEndPoint(AZMArc, azmCircle, azmImage);
+    calculateArcEndPoint(caloriesArc, calCircle, calImage);
+    calculateArcEndPoint(floorsArc, floorsCircle, floorsImage);
 }
 
 activity.initialize("seconds", activityCallback);
@@ -85,6 +65,7 @@ activity.initialize("seconds", activityCallback);
 
 const heartArc = document.getElementById("hrArc");
 const heartCircle = document.getElementById("hrCircle");
+const hrImage = document.getElementById("hrImage");
 
 function hrmCallback(data) {
     let hr = data.bpm;
@@ -93,15 +74,15 @@ function hrmCallback(data) {
         return
     }
 
-    heartArc.sweepAngle = (hr / 220) * 360;
-    calculateArcEndPoint(heartArc, heartCircle);
+    heartArc.sweepAngle = (hr / 180) * 360;
+    calculateArcEndPoint(heartArc, heartCircle, hrImage);
 }
 
 hrm.initialize(hrmCallback);
 
-const arcWidth = 5;
+const arcWidth = 6;
 
-function calculateArcEndPoint(arc, circle, output = false) {
+function calculateArcEndPoint(arc, circle, image) {
 
     // We can cheat a lil since each arc is a full circle
     const width = arc.getBBox().width, x = arc.getBBox().x;
@@ -120,4 +101,7 @@ function calculateArcEndPoint(arc, circle, output = false) {
 
     circle.cx = endpointX - offsetX;
     circle.cy = endpointY - offsetY;
+
+    image.x = circle.cx - image.width / 2;
+    image.y = circle.cy - image.height / 2;
 }
